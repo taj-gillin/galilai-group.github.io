@@ -89,7 +89,7 @@ const Contact = () => {
             <p>
               Our office is in the heart of the city—easily accessible by public transit and with ample parking.
             </p>
-            <button onClick={() => window.open('https://www.google.com/maps/place/Department+of+Computer+Science/@41.826953,-71.3995786,17z/data=!3m1!4b1!4m6!3m5!1s0x89e4453b5275469d:0xc48a812b6cfb273!8m2!3d41.826953!4d-71.3995786!16s%2Fg%2F1hhwdn5zz?entry=ttu&g_ep=EgoyMDI1MDIyNS4wIKXMDSoASAFQAw%3D%3D', '_blank')}>
+            <button onClick={() => window.open('https://www.google.com/maps/place/Department+of+Computer+Science/@41.826953,-71.3995786,17z/data=!3m1!4b1!4m6!3m5!1s0x89e4453b5275469d:0xc48a812b6cfb273!8m2!3d41.826953!4d-71.3995786!16s%2Fg%2F1hhwdn5zz?entry=ttu&g_ep=EgoyMDI1MDIyNS4wIKXMDSoASAFQAw%3D%3D&hl=en', '_blank')}>
               Open in Google Maps
             </button>
           </div>
