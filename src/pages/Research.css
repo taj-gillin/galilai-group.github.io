@@ -44,6 +44,7 @@ body {
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   border: 1px solid rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .project-image-container {
@@ -258,19 +259,9 @@ body {
 /* Responsive Styles     */
 /* --------------------- */
 @media (max-width: 1024px) {
-  .research-container {
-    display: flex;
-    flex-direction: column; /* Stack the search bar and projects */
-  }
-
   .research-grid {
     grid-template-columns: 1fr; /* Make sure the grid is full-width */
     gap: 20px;
-  }
-
-  /* Ensure the search bar comes first (before the projects section) */
-  .sidebar {
-    order: -1; /* Move the sidebar above the project cards */
   }
 
   .project-card {
@@ -278,8 +269,7 @@ body {
   }
 
   .project-image-container,
-  .project-details {
-    width: 100%; /* Ensure both sections take full width */
+  .project-details {/* Ensure both sections take full width */
   }
 
   .project-image-container {
@@ -314,6 +304,9 @@ body {
     font-size: 0.85em;
   }
 
+  .project-card {/* Ensure the card is fully responsive */
+  }
+
   .project-footer {
     flex-direction: column;
     align-items: flex-start;
@@ -326,11 +319,6 @@ body {
 
   .link-icons {
     margin-bottom: 10px;
-  }
-
-  /* Ensure the search bar comes first (before the projects section) */
-  .sidebar {
-    order: -1; /* Move the sidebar above the project cards */
   }
 }
 
@@ -347,11 +335,6 @@ body {
 
   .link-icons {
     margin-bottom: 10px;
-  }
-
-  /* Ensure the search bar comes first (before the projects section) */
-  .sidebar {
-    order: -1; /* Move the sidebar above the project cards */
   }
 }
 
@@ -379,10 +362,5 @@ body {
 
   .sidebar {
     padding: 20px 10px;
-  }
-
-  /* Ensure the search bar comes first (before the projects section) */
-  .sidebar {
-    order: -1; /* Move the sidebar above the project cards */
   }
 }
