@@ -37,7 +37,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link to="/group" className="nav-link" onClick={toggleMenu}>
-              Groups
+              Group
             </Link>
           </li>
           <li>
