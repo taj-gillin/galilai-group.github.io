@@ -1,86 +1,72 @@
-:root {
-  --accent-color: #ff007a;
-  --dark-bg: #0d0d0d;
-  --text-light: #f0f0f0;
-  --text-muted: #a0a0a0;
-  --primary-gradient: linear-gradient(135deg, #7f00ff, #e100ff);
-}
+/* Footer.css */
 
+/* Overall footer styling */
 .page-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: var(--dark-bg);
-  color: var(--text-light);
-  z-index: 1000;
-  /* Reduced padding for a thinner footer */
-  padding: 10px 20px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.05);
-  font-size: 14px;
+  background-color: #f8f9fa; /* Light background for the footer */
+  padding: 20px 10px; /* Padding to prevent content from touching edges */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Ensures proper wrapping on smaller screens */
 }
 
+/* Footer content container */
 .footer-content {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
+  max-width: 1200px; /* Restricts the maximum width for better design on larger screens */
+  padding: 0 15px; /* Responsive padding */
+  box-sizing: border-box; /* Includes padding in width calculation */
 }
 
+/* Left empty space for symmetry (desktop only) */
 .footer-left {
-  /* Empty grid cell for symmetry on desktop */
+  flex: 1; /* Takes up equal space */
 }
 
+/* Footer text styling */
 .footer-text {
-  text-align: center;
-  justify-self: center;
+  flex: 2;
+  text-align: center; /* Centers the text */
+  font-size: 14px; /* Small, readable font size */
+  color: #6c757d; /* Subtle gray color for text */
 }
 
+/* Social media icons container */
 .footer-social {
-  justify-self: end;
+  flex: 1;
   display: flex;
-  /* Reduced gap for a more compact look */
-  gap: 10px;
+  justify-content: center;
+  gap: 15px; /* Space between icons */
 }
 
+/* Social media icon link styling */
 .social-icon {
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.05);
-  /* Reduced padding for a thinner appearance */
-  padding: 5px;
-  border-radius: 50%;
-  transition: transform 0.3s ease, color 0.3s ease;
+  color: #6c757d; /* Default gray color */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+  display: inline-flex; /* Centers the SVG icons */
+  align-items: center;
 }
 
+/* Hover effect for social media icons */
 .social-icon:hover {
-  transform: scale(1.2);
-  color: var(--text-light);
+  color: #007bff; /* Changes icon color to blue on hover */
 }
 
-/* Responsive Styles for Tablets & Mobiles */
+/* Responsive styling for small screens */
 @media (max-width: 768px) {
   .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 0 10px;
-  }
-  
-  .footer-left {
-    display: none;
-  }
-  
-  .footer-social {
-    justify-content: center;
-    width: 100%;
-    gap: 10px;
-    margin: 0 auto;
-  }
-  
-  .footer-text {
+    flex-direction: column; /* Stacks content vertically */
     text-align: center;
+  }
+
+  .footer-left {
+    display: none; /* Hides the left-side symmetry block on smaller screens */
+  }
+
+  .footer-social {
+    margin-top: 10px; /* Adds spacing between text and social icons */
   }
 }
