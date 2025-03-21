@@ -153,6 +153,45 @@
       "github": "https://github.com/username/data-augmentation",
       "arxiv": "https://arxiv.org/abs/4567.8901",
       "webpage": "https://example.com/data-augmentation"
+    },
+    {
+      "id": 12,
+      "title": "Learning from Reward-Free Offline Data: A Case for Planning with Latent Dynamics Models",
+      "categories": ["Machine Learning", "Reinforcement Learning", "Optimal Control"],
+      "date": "February 20, 2025",
+      "description": "A study analyzing RL and control-based methods for learning from offline datasets without reward annotations. The research evaluates dataset properties affecting performance, showcasing the advantages of planning with latent dynamics models.",
+      "image": "/assets/images/latent-planning.png",
+      "arxiv": "https://arxiv.org/abs/2502.14819",
+      "github": "https://latent-planning.github.io/"
+    },
+    {
+      "id": 13,
+      "title": "Eidetic Learning: an Efficient and Provable Solution to Catastrophic Forgetting",
+      "categories": ["Machine Learning", "Neural Networks", "Continual Learning"],
+      "date": "February 14, 2025",
+      "description": "This paper introduces Eidetic Learning, a method that eliminates catastrophic forgetting in neural networks without requiring rehearsal. The approach ensures efficient and scalable learning across successive tasks.",
+      "image": "/assets/images/eidetic-learning.png",
+      "arxiv": "https://arxiv.org/abs/2502.09500",
+      "github": "https://github.com/amazon-science/eideticnet-training"
+    },
+    {
+      "id": 14,
+      "title": "Curvature Tuning: Provable Training-free Model Steering From a Single Parameter",
+      "categories": ["Machine Learning", "Model Fine-tuning", "Neural Networks"],
+      "date": "February 11, 2025",
+      "description": "Curvature Tuning (CT) is a training-free method for model steering that modulates decision boundary curvature using a single parameter. This efficient approach enhances generalization and robustness across downstream tasks.",
+      "image": "/assets/images/curvature-tuning.png",
+      "arxiv": "https://arxiv.org/abs/2502.07783",
+      "github": "https://github.com/Leon-Leyang/curvature-tuning"
+    },
+    {
+      "id": 15,
+      "title": "No Location Left Behind: Measuring and Improving the Fairness of Implicit Representations for Earth Data",
+      "categories": ["Machine Learning", "Fairness in AI", "Earth Data"],
+      "date": "February 5, 2025",
+      "description": "FAIR-Earth is a dataset designed to evaluate biases in Earth representation models. The study highlights disparities in modeling specific geographic features and proposes spherical wavelet encodings to improve fairness and accuracy.",
+      "image": "/assets/images/fair-earth.png",
+      "arxiv": "https://arxiv.org/abs/2502.06831"
     }
   ]
 }
