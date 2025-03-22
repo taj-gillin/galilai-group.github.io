@@ -1,159 +1,7 @@
 {
   "title": "PROJECTS",
   "projects": [
-    {
-      "id": 1,
-      "title": "DEEP THINKING",
-      "categories": [
-        "IN MACHINE LEARNING",
-        "Cognitive Computing",
-        "Advanced Algorithms"
-      ],
-      "date": "October 22, 2021",
-      "description": "Human-inspired thinking systems can solve complex logical reasoning problems. In this project, we explore advanced neural networks and innovative algorithms to mimic human cognitive processes and improve problem solving. This research provides insights into the potential for artificial intelligence to complement human creativity in various domains.",
-      "image": "/assets/images/deep-thinking.png",
-      "formula": "e^(iπ) + 1 = 0",
-      "github": "https://github.com/username/deep-thinking",
-      "arxiv": "https://arxiv.org/abs/1234.5678",
-      "twitter": "https://twitter.com/deepthinking"
-    },
-    {
-      "id": 2,
-      "title": "SONIFICATION",
-      "categories": [
-        "IN MACHINE LEARNING",
-        "Audio Analysis",
-        "Signal Processing"
-      ],
-      "date": "October 20, 2021",
-      "description": "We sonify what neurons respond to in a speech recognition model, transforming data into auditory signals. This approach not only makes it easier to interpret complex activations in deep neural networks but also opens up new pathways for analyzing and understanding the behavior of these models.",
-      "image": "/assets/images/sonification.png",
-      "webpage": "https://example.com/sonification-page"
-    },
-    {
-      "id": 3,
-      "title": "ADVERSARIAL DEFENSES",
-      "categories": [
-        "ADVERSARIAL LEARNING",
-        "Cybersecurity",
-        "Robust AI"
-      ],
-      "date": "November 5, 2021",
-      "description": "Exploring robust defenses against adversarial attacks in neural networks, this project investigates multiple techniques to safeguard machine learning models from malicious inputs. By analyzing potential vulnerabilities, the research aims to improve the security and reliability of AI systems deployed in critical applications.",
-      "image": "/assets/images/deep-thinking.png",
-      "github": "https://github.com/username/adversarial-defenses"
-    },
-    {
-      "id": 4,
-      "title": "AUDIO AUGMENTATION",
-      "categories": [
-        "AUDIO",
-        "Sound Synthesis",
-        "Data Augmentation"
-      ],
-      "date": "November 12, 2021",
-      "description": "Using data augmentation techniques to enhance audio datasets for deep learning, this project demonstrates how synthetic data can improve model robustness. The study involves applying transformations and noise injections to create varied audio samples that lead to better generalization in neural network training.",
-      "image": "/assets/images/deep-thinking.png",
-      "twitter": "https://twitter.com/audioaug"
-    },
-    {
-      "id": 5,
-      "title": "ENHANCED MEDICAL IMAGING",
-      "categories": [
-        "MEDICAL IMAGING",
-        "Diagnostic AI",
-        "Healthcare Tech"
-      ],
-      "date": "December 2, 2021",
-      "description": "Improving diagnostics with AI-based segmentation and classification techniques, this project focuses on enhancing the clarity and precision of medical images. The research leverages state-of-the-art deep learning algorithms to detect subtle anomalies in imaging data, potentially leading to earlier disease detection and better patient outcomes.",
-      "image": "/assets/images/deep-thinking.png",
-      "arxiv": "https://arxiv.org/abs/2345.6789",
-      "webpage": "https://example.com/medical-imaging"
-    },
-    {
-      "id": 6,
-      "title": "OPTIMIZATION STRATEGIES",
-      "categories": [
-        "OPTIMIZATION",
-        "Gradient Descent",
-        "Performance Improvement"
-      ],
-      "date": "December 10, 2021",
-      "description": "Developing efficient gradient-based optimization methods for training deep networks, this project explores innovative strategies to reduce training time and improve model accuracy. By experimenting with novel loss functions and learning rate schedules, the research provides a deeper understanding of the optimization landscape in deep learning.",
-      "image": "/assets/images/deep-thinking.png"
-    },
-    {
-      "id": 7,
-      "title": "IMAGE RESTORATION",
-      "categories": [
-        "IMAGE PROCESSING",
-        "GANs",
-        "Computer Vision"
-      ],
-      "date": "January 15, 2022",
-      "description": "Restoring and enhancing low-resolution images using GANs, this project delves into the capabilities of generative adversarial networks to reconstruct details in degraded images. The study covers various techniques to balance sharpness and authenticity, resulting in images that are both high-quality and visually coherent.",
-      "image": "/assets/images/deep-thinking.png",
-      "github": "https://github.com/username/image-restoration",
-      "twitter": "https://twitter.com/imagrestoration"
-    },
-    {
-      "id": 8,
-      "title": "RECURRENT PATTERNS",
-      "categories": [
-        "RECURRENCE",
-        "Time Series",
-        "Sequential Analysis"
-      ],
-      "date": "January 30, 2022",
-      "description": "Investigating long-term dependencies in time-series data with LSTMs, this research analyzes how recurrent neural networks capture and predict sequential patterns. The findings contribute to improving forecasting models in various fields such as finance, weather prediction, and natural language processing.",
-      "image": "/assets/images/deep-thinking.png",
-      "github": "https://github.com/example/recurrent-patterns",
-      "arxiv": "https://arxiv.org/abs/3456.7890",
-      "webpage": "https://example.com/recurrent-patterns"
-    },
-    {
-      "id": 9,
-      "title": "NATURAL LANGUAGE UNDERSTANDING",
-      "categories": [
-        "NATURAL LANGUAGE PROCESSING",
-        "Transformers",
-        "Text Analytics"
-      ],
-      "date": "February 10, 2022",
-      "description": "Utilizing transformer-based architectures for advanced language understanding and context-aware text generation.",
-      "image": "/assets/images/deep-thinking.png",
-      "twitter": "https://twitter.com/nlp_project"
-    },
-    {
-      "id": 10,
-      "title": "DATA AUGMENTATION TECHNIQUES",
-      "categories": [
-        "DATA AUGMENTATION",
-        "Data Diversity",
-        "Synthetic Data"
-      ],
-      "date": "March 5, 2022",
-      "description": "Exploring various data augmentation strategies to enhance model generalization across diverse datasets.",
-      "image": "/assets/images/deep-thinking.png",
-      "github": "https://github.com/username/data-augmentation",
-      "arxiv": "https://arxiv.org/abs/4567.8901",
-      "webpage": "https://example.com/data-augmentation"
-    },
-    {
-      "id": 11,
-      "title": "I dontknow",
-      "categories": [
-        "Test Category",
-        "Dummy",
-        "Placeholder"
-      ],
-      "date": "March 5, 2021",
-      "description": "Exploring various data augmentation strategies to enhance model generalization across diverse datasets.",
-      "image": "/assets/images/deep-thinking.png",
-      "github": "https://github.com/username/data-augmentation",
-      "arxiv": "https://arxiv.org/abs/4567.8901",
-      "webpage": "https://example.com/data-augmentation"
-    },
+    
     {
       "id": 12,
       "title": "Learning from Reward-Free Offline Data: A Case for Planning with Latent Dynamics Models",
@@ -192,6 +40,96 @@
       "description": "FAIR-Earth is a dataset designed to evaluate biases in Earth representation models. The study highlights disparities in modeling specific geographic features and proposes spherical wavelet encodings to improve fairness and accuracy.",
       "image": "/assets/images/fair-earth.png",
       "arxiv": "https://arxiv.org/abs/2502.06831"
+    },
+    {
+      "id": 16,
+      "title": "Beyond and Free from Diffusion: Invertible Guided Consistency Training",
+      "categories": ["Computer Vision", "Generative Models", "Machine Learning"],
+      "date": "February 7, 2025",
+      "description": "This work proposes an invertible guided consistency training approach that removes the need for costly diffusion model distillation, enabling efficient and flexible guidance in image generation.",
+      "image": "/assets/images/invertible-guided-consistency.png",
+      "arxiv": "https://arxiv.org/abs/2502.05391"
+    },
+    {
+      "id": 17,
+      "title": "Beyond [cls]: Exploring the True Potential of Masked Image Modeling Representations",
+      "categories": ["Computer Vision", "Self-Supervised Learning", "Machine Learning"],
+      "date": "December 4, 2024",
+      "description": "This paper investigates the performance gap between Masked Image Modeling (MIM) and Joint-Embedding Architectures (JEA) by analyzing the information flow in Vision Transformers.",
+      "image": "/assets/images/masked-image-modeling.png",
+      "arxiv": "https://arxiv.org/abs/2412.03215"
+    },
+    {
+      "id": 18,
+      "title": "Self-Supervised Video Instance Segmentation Can Boost Geographic Entity Alignment in Historical Maps",
+      "categories": ["Computer Vision", "Self-Supervised Learning", "Geospatial Analysis"],
+      "date": "November 26, 2024",
+      "description": "This research explores the use of self-supervised video instance segmentation to improve the alignment of geographic entities across historical maps, facilitating cultural heritage studies.",
+      "image": "/assets/images/historical-maps-alignment.png",
+      "arxiv": "https://arxiv.org/abs/2411.17425"
+    },
+    {
+      "id": 19,
+      "title": "Cross-Entropy Is All You Need To Invert the Data Generating Process",
+      "categories": ["Machine Learning", "Supervised Learning", "Statistical Learning"],
+      "date": "October 29, 2024",
+      "description": "This paper explores how cross-entropy loss enables supervised models to learn interpretable factors of variation and invert the data-generating process.",
+      "image": "/assets/images/cross-entropy-inversion.png",
+      "arxiv": "https://arxiv.org/abs/2410.21869"
+    },
+    {
+      "id": 20,
+      "title": "The Fair Language Model Paradox",
+      "categories": ["Natural Language Processing", "AI Ethics", "Machine Learning"],
+      "date": "October 15, 2024",
+      "description": "This study examines token-level biases in large language models, revealing structural disparities introduced by training dynamics and hyperparameter choices.",
+      "image": "/assets/images/fair-language-models.png",
+      "arxiv": "https://arxiv.org/abs/2410.11985"
+    },
+    {
+      "id": 21,
+      "title": "ALLoRA: Adaptive Learning Rate Mitigates LoRA Fatal Flaws",
+      "categories": ["Machine Learning", "Model Optimization", "Neural Networks"],
+      "date": "October 12, 2024",
+      "description": "This work identifies core limitations in LoRA fine-tuning and introduces an adaptive learning rate mechanism to enhance its efficiency.",
+      "image": "/assets/images/allora-adaptive-learning.png",
+      "arxiv": "https://arxiv.org/abs/2410.09692"
+    },
+    {
+      "id": 22,
+      "title": "Self-Supervised Anomaly Detection in the Wild: Favor Joint Embeddings Methods",
+      "categories": ["Computer Vision", "Anomaly Detection", "Self-Supervised Learning"],
+      "date": "October 5, 2024",
+      "description": "This paper evaluates self-supervised learning approaches for anomaly detection, emphasizing the effectiveness of joint embedding methods.",
+      "image": "/assets/images/self-supervised-anomaly.png",
+      "arxiv": "https://arxiv.org/abs/2410.04289"
+    },
+    {
+      "id": 23,
+      "title": "UniBench: Visual Reasoning Requires Rethinking Vision-Language Beyond Scaling",
+      "categories": ["Computer Vision", "Multimodal Learning", "AI Benchmarking"],
+      "date": "August 8, 2024",
+      "description": "This research introduces UniBench, a systematic evaluation framework for vision-language models to better assess meaningful axes of progress.",
+      "image": "/assets/images/unibench-vision-language.png",
+      "arxiv": "https://arxiv.org/abs/2408.04810"
+    },
+    {
+      "id": 24,
+      "title": "On the Geometry of Deep Learning",
+      "categories": ["Machine Learning", "Mathematical Foundations", "Neural Networks"],
+      "date": "August 8, 2024",
+      "description": "This paper provides an overview of deep learning through the lens of affine spline mappings, revealing key geometric insights.",
+      "image": "/assets/images/geometry-deep-learning.png",
+      "arxiv": "https://arxiv.org/abs/2408.04809"
+    },
+    {
+      "id": 25,
+      "title": "X-Sample Contrastive Loss: Improving Contrastive Learning with Sample Similarity Graphs",
+      "categories": ["Machine Learning", "Self-Supervised Learning", "Contrastive Learning"],
+      "date": "July 25, 2024",
+      "description": "This paper introduces X-Sample Contrastive Loss, an approach that enhances contrastive learning by incorporating sample similarity graphs.",
+      "image": "/assets/images/xsample-contrastive-loss.png",
+      "arxiv": "https://arxiv.org/abs/2407.18134"
     }
   ]
 }
