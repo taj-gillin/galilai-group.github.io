@@ -35,11 +35,12 @@
         "personalWebsite": "https://scholar.google.com/citations?user=_pVM1y4AAAAJ&hl=en"
       },
       {
-        "name": "Rika Antonova",
-        "role": "Postdoc",
-        "image": "/assets/people/male.jpg",
-        "researchInterests": "Neural networks, sensorimotor control",
-        "personalWebsite": "https://example.com/rika-antonova"
+        "name": "Hugues Van Assela",
+        "role":"Visiting Researcher",
+        "role_title": "Visting Researcher",
+        "image": "/assets/people/Hugues.jpeg",
+        "researchInterests": "Representation Learning, Self-Supervised Learning, Dimensionality Reduction",
+        "personalWebsite": "https://huguesva.github.io"
       },
       {
         "name": "Rika Antonova",
