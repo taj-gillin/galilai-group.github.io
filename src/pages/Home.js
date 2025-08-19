@@ -37,7 +37,7 @@ const Home = () => {
       <div className="home-text">
         <h1>Welcome to Balestriero Lab</h1>
         <p>
-          At Balestriero Lab, we are dedicated to advancing the frontiers of biomedical engineering and neuroscience.
+          At Balestriero Lab, we are dedicated to advancing theory and applications of self-supervised learning.
           Our research focuses on developing innovative solutions to improve human health and well-being.
         </p>
         <div className="scroll-indicator" onClick={scrollToNews}>

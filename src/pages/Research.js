@@ -33,7 +33,6 @@ const ProjectCard = ({ project }) => {
 
   // Use the "categories" array if available; otherwise fallback to a single category.
   const categories = project.categories || (project.category ? [project.category] : []);
-
   return (
     <div className="project-card">
       <div className="project-image-container">
