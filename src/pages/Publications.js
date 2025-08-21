@@ -20,6 +20,7 @@ const XIcon = () => (
     />
   </svg>
 );
+// "authors": ["Vlad Sobal", "Wancong Zhang", "Kyunghyun Cho", "Randall Balestriero", "Tim G. J. Rudner", "Yann LeCun"],
 
 const ProjectCard = ({ project }) => {
   const [expanded, setExpanded] = useState(false);

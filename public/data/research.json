@@ -4,6 +4,7 @@
     {
       "id": 12,
       "title": "Learning from Reward-Free Offline Data: A Case for Planning with Latent Dynamics Models",
+      "authors": "Vlad Sobal, Wancong Zhang, Kyunghyun Cho, Randall Balestriero, Tim G. J. Rudner, Yann LeCun",
       "categories": ["Machine Learning", "Reinforcement Learning", "Optimal Control"],
       "date": "February 20, 2025",
       "description": "A study analyzing RL and control-based methods for learning from offline datasets without reward annotations. The research evaluates dataset properties affecting performance, showcasing the advantages of planning with latent dynamics models.",
@@ -27,27 +28,27 @@
       "categories": ["Machine Learning", "Model Fine-tuning", "Neural Networks"],
       "date": "February 11, 2025",
       "description": "Curvature Tuning (CT) is a training-free method for model steering that modulates decision boundary curvature using a single parameter. This efficient approach enhances generalization and robustness across downstream tasks.",
-      "image": "/assets/images/curvature-tuning.png",
+      "image": "/assets/images/curvature-tuning-full.png",
       "arxiv": "https://arxiv.org/abs/2502.07783",
       "github": "https://github.com/Leon-Leyang/curvature-tuning"
     },
     {
       "id": 15,
-      "title": "No Location Left Behind: Measuring and Improving the Fairness of Implicit Representations for Earth Data",
-      "categories": ["Machine Learning", "Fairness in AI", "Earth Data"],
-      "date": "February 5, 2025",
-      "description": "FAIR-Earth is a dataset designed to evaluate biases in Earth representation models. The study highlights disparities in modeling specific geographic features and proposes spherical wavelet encodings to improve fairness and accuracy.",
-      "image": "/assets/images/fair-earth.png",
-      "arxiv": "https://arxiv.org/abs/2502.06831"
-    },
-    {
-      "id": 16,
       "title": "Beyond and Free from Diffusion: Invertible Guided Consistency Training",
       "categories": ["Computer Vision", "Generative Models", "Machine Learning"],
       "date": "February 7, 2025",
       "description": "This work proposes an invertible guided consistency training approach that removes the need for costly diffusion model distillation, enabling efficient and flexible guidance in image generation.",
       "image": "/assets/images/invertible-guided-consistency.png",
       "arxiv": "https://arxiv.org/abs/2502.05391"
+    },
+    {
+      "id": 16,
+      "title": "No Location Left Behind: Measuring and Improving the Fairness of Implicit Representations for Earth Data",
+      "categories": ["Machine Learning", "Fairness in AI", "Earth Data"],
+      "date": "February 5, 2025",
+      "description": "FAIR-Earth is a dataset designed to evaluate biases in Earth representation models. The study highlights disparities in modeling specific geographic features and proposes spherical wavelet encodings to improve fairness and accuracy.",
+      "image": "/assets/images/fair-earth.png",
+      "arxiv": "https://arxiv.org/abs/2502.06831"
     },
     {
       "id": 17,
