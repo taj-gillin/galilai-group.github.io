@@ -32,22 +32,16 @@
       "sectionTitle": "Research Opportunities",
       "areas": [
         {
-          "title": "Doctoral Openings",
-          "description": "Seeking motivated students in self-supervised learning, large language models, and computational research.",
-          "linkText": "Learn More",
-          "link": "/opportunities"
-        },
-        {
           "title": "Postdoctoral Positions",
           "description": "Opportunities in representation learning, theoretical aspects of machine learning, and applied AI for physical sciences.",
           "linkText": "Apply Now",
-          "link": "/opportunities"
+          "link": "/research"
         },
         {
           "title": "Undergraduate Research",
           "description": "Positions for students in computer science, applied mathematics, and engineering with passion for machine learning theory and applying AI for science.",
           "linkText": "Explore",
-          "link": "/opportunities"
+          "link": "/research"
         }
       ]
     }

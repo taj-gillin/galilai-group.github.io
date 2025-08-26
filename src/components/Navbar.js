@@ -50,11 +50,11 @@ const Navbar = () => {
               News
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/events" className='nav-link' onClick={toggleMenu}>
               Events
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/teaching" className='nav-link' onClick={toggleMenu}>
               Teaching

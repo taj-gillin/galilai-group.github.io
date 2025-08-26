@@ -1,0 +1,19 @@
+.events-container {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.events-header {
+  padding: 1rem 0;
+}
+
+.events-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.events-tabs {
+  column-span: 2;
+}

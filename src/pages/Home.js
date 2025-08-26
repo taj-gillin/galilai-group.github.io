@@ -64,7 +64,7 @@ const Home = () => {
       </section>
 
       {/* Funding Section */}
-      <section className="funding-section">
+      {/* <section className="funding-section">
         <div className="section-header">
           <DollarSign size={40} className="section-icon" />
           <h2>{homeData.funding.sectionTitle}</h2>
@@ -77,7 +77,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Diversity Section */}
       <section className="diversity-section">
@@ -96,6 +96,13 @@ const Home = () => {
       </section>
 
       {/* Opportunities Section */}
+        {/* { //Temporary position for homeData.json
+          "title": "Doctoral Openings",
+          "description": "Seeking motivated students in self-supervised learning, large language models, and computational research.",
+          "linkText": "Learn More",
+          "link": "/opportunities"
+        }, */}
+
       <section className="opportunities-section">
         <div className="section-header">
           <Briefcase size={40} className="section-icon" />
@@ -108,7 +115,7 @@ const Home = () => {
                 <Microscope size={30} />
                 <h3>{area.title}</h3>
                 <p>{area.description}</p>
-                <a href={area.link} className="btn">{area.linkText}</a>
+                {/* <a href={area.link} className="btn">{area.linkText}</a> */}
               </div>
             ))}
           </div>
