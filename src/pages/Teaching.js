@@ -24,36 +24,52 @@ const tutorials = [
 const Teaching = () => {
   return (
       <div className="teaching-container">
-        <h1 className='teaching-header'>Teaching</h1>
-        <p className="teaching-subtitle">A list of courses and tutorials are listed below.</p>
-        <div className="teaching-subcontainer-courses">
-          <h3 className='teaching-course-title'>Courses</h3>
+        <div className="teaching-listings card-list">
           <ul>
-            {courses.map(course => {
+            {courses.map((course, index) => {
               const zippedLinks = course.years.map((a, i) => [a, course.links[i]]);
+              
+              // Get the most recent link (last non-empty link)
+              const latestLink = course.links.filter(link => link).pop() || null;
+              const courseTitle = `${course.id}: ${course.name}`;
+              
+              // Format offered terms with commas
+              const offeredTerms = zippedLinks.map((item, idx) => {
+                return (
+                  <span key={idx}>
+                    {item[1] ? (
+                      <a href={item[1]} target="_blank" rel="noopener noreferrer">
+                        {item[0]}
+                      </a>
+                    ) : (
+                      item[0]
+                    )}
+                    {idx < zippedLinks.length - 1 && ", "}
+                  </span>
+                );
+              });
 
-              // After zipping years and links together, we conditionally create href if a link is present or not.
               return (
-                <li>
-                  {course.id}: {course.name},
-                  {zippedLinks.map((item, index) => (
-                    <span key={index}>
-                      {index === 0 && " "}
-                      {item[1] ? (
-                        <a href={item[1]} target="_blank" rel="noopener noreferrer">
-                          {item[0]}
+                <li key={index} className="teaching-post">
+                  <div className="post-content-wrapper">
+                    <h2 className="post-title">
+                      {latestLink ? (
+                        <a href={latestLink} target="_blank" rel="noopener noreferrer">
+                          {courseTitle}
                         </a>
                       ) : (
-                        item[0]
+                        courseTitle
                       )}
-                      {index < zippedLinks.length - 1 && ", "}
-                    </span>
-                  ))}
+                    </h2>
+                    <div className="post-meta">
+                      <span className="post-updated">{offeredTerms}</span>
+                    </div>
+                  </div>
                 </li>
               )
             })}
-            </ul>
-          </div>
+          </ul>
+        </div>
       </div>
   )
 }

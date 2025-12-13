@@ -3,22 +3,33 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Research from './pages/Research';
+// import Research from './pages/Research';
 import Publications from './pages/Publications';
 import News from './pages/News';
-import Events from './pages/Events';
-import Teaching from './pages/Teaching';
-import Contact from './pages/Contact';
+import NewsDetail from './pages/NewsDetail';
+import OpportunityDetail from './pages/OpportunityDetail';
+// import Teaching from './pages/Teaching';
+import Opportunities from './pages/Opportunities';
+import Projects from './pages/Projects';
 import './App.css';
-import Group from './pages/Group';
+import People from './pages/People';
 
 // ScrollToTop Component
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
 
   useEffect(() => {
+    // Check if we're returning from a detail page
+    const isReturning = state?.returning;
+    
+    if (isReturning) {
+      // Don't scroll to top - let the page component handle restoration
+      return;
+    }
+    
+    // Default: scroll to top for new navigation
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, state]);
 
   return null;
 };
@@ -41,13 +52,14 @@ const App = () => {
         <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/research" element={<Research />} />
           <Route path="/publications" element={<Publications />} />
-          <Route path="/group" element={<Group people={people} />} />
+          <Route path="/people" element={<People people={people} />} />
           <Route path="/news" element={<News />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/teaching" element={<Teaching />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/news/:id" element={<NewsDetail />} />
+          <Route path="/opportunities" element={<Opportunities />} />
+          <Route path="/opportunities/:id" element={<OpportunityDetail />} />
+          <Route path="/projects" element={<Projects />} />
+          {/* <Route path="/teaching" element={<Teaching />} /> */}
         </Routes>
         </main>
         <Footer />

@@ -1,10 +1,15 @@
 import React, { useRef, useCallback, useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Home.css';
-import { Award, Users, Microscope, Briefcase, DollarSign } from 'lucide-react';
+import './News.css';
+import { Users, DollarSign } from 'lucide-react';
 
 const Home = () => {
   const newsRef = useRef(null);
-  const [homeData, setHomeData] = useState(null);
+  const location = useLocation();
+  const [newsData, setNewsData] = useState(null);
+  const [opportunitiesData, setOpportunitiesData] = useState(null);
+  const videoRef = useRef(null);
 
   const scrollToNews = useCallback(() => {
     if (newsRef.current) {
@@ -13,111 +18,176 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch('/data/homeData.json')
+    // Fetch news data
+    fetch('/data/news.json')
       .then(response => response.json())
-      .then(data => setHomeData(data))
-      .catch(error => console.error('Error fetching home data:', error));
+      .then(data => setNewsData(data))
+      .catch(error => console.error('Error fetching news data:', error));
+    
+    // Fetch opportunities data
+    fetch('/data/opportunities.json')
+      .then(response => response.json())
+      .then(data => setOpportunitiesData(data))
+      .catch(error => console.error('Error fetching opportunities data:', error));
   }, []);
 
-  if (!homeData) {
+  // Auto-play video
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log('Video autoplay prevented:', error);
+      });
+      
+      // Add error handling
+      videoRef.current.addEventListener('error', (e) => {
+        console.error('Video loading error:', e);
+        console.error('Video source:', videoRef.current?.src);
+      });
+      
+      videoRef.current.addEventListener('loadeddata', () => {
+        console.log('Video loaded successfully');
+      });
+    }
+  }, []);
+
+  // Restore scroll position if returning from detail page
+  useEffect(() => {
+    if (location.state?.returning && location.state?.scrollKey === 'homeScroll') {
+      const savedScroll = sessionStorage.getItem('homeScroll');
+      if (savedScroll) {
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(savedScroll, 10));
+          sessionStorage.removeItem('homeScroll');
+        }, 100);
+      }
+    }
+  }, [location.state]);
+
+  // Save scroll position before navigating
+  const handleLinkClick = (e, path) => {
+    sessionStorage.setItem('homeScroll', window.scrollY.toString());
+  };
+
+  if (!newsData || !opportunitiesData) {
     return <div className="loading">Loading...</div>;
   }
 
   return (
     <div className="home-container">
-      {/* Video Section */}
-      <div className="video-container">
-        <video autoPlay loop muted className="home-video">
-          <source src="assets/videos/homepage.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      {/* Homepage Video Section */}
+      <div className="home-group-photo">
+        <div className="video-container">
+          <video
+            ref={videoRef}
+            className="homepage-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="Galilai Group video"
+          >
+            <source src="/assets/videos/homepage.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
 
-      {/* Home Text */}
+      {/* Intro Section */}
       <div className="home-text">
-        <h1>Welcome to Balestriero Lab</h1>
-        <p>
-          At the Balestriero Lab, we advance both the theory and practice of self-supervised learning.
-          Our research develops innovative AI methods that bridge fundamental understanding with real-world applications.</p>
-        <div className="scroll-indicator" onClick={scrollToNews}>
-          <span></span>
-          <div className="arrow"></div>
-        </div>
+        <h1 className="publication-heading">Welcome to Galilai Group</h1>
+        <p className="home-intro-body">
+        At Galilai Group, we study both the theory and practice of deep learning. We use theory to guide practice, and use practical observations to inform new theory.
+        </p>
       </div>
 
       {/* News Section */}
       <section className="news-section" ref={newsRef}>
         <div className="section-header">
-          <Award size={40} className="section-icon" />
-          <h2>{homeData.news.sectionTitle}</h2>
+          <h2 className="publication-heading">News</h2>
         </div>
         <div className="news-content">
-          <div className="news-item">
-            <h3>{homeData.news.title}</h3>
+          <div className="news-listings card-list home-news-list">
             <ul>
-              {homeData.news.items.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
+              {newsData.news
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .map((item, index) => (
+                  <li key={item.id || index} className="news-post">
+                    <div className="post-content-wrapper">
+                      <h2 className="post-title">
+                        <Link 
+                          to={`/news/${item.id}`} 
+                          state={{ from: 'home' }}
+                          onClick={(e) => handleLinkClick(e, `/news/${item.id}`)}
+                        >
+                          {item.title}
+                        </Link>
+                      </h2>
+                      <div className="post-meta">
+                        <span className="post-updated">
+                          {new Date(item.date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                          })}
+                        </span>
+                      </div>
+                      {item.description && (
+                        <p
+                          className="post-description"
+                          dangerouslySetInnerHTML={{
+                            __html: item.description.split('\n\n')[0]
+                          }}
+                        />
+                      )}
+                    </div>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Funding Section */}
-      {/* <section className="funding-section">
-        <div className="section-header">
-          <DollarSign size={40} className="section-icon" />
-          <h2>{homeData.funding.sectionTitle}</h2>
-        </div>
-        <div className="funding-content">
-          <p>{homeData.funding.content}</p>
-          <div className="funding-logos">
-            {homeData.funding.logos.map((logo, index) => (
-              <img key={index} src={logo.src} alt={logo.alt} />
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Diversity Section */}
-      <section className="diversity-section">
-        <div className="section-header">
-          <Users size={40} className="section-icon" />
-          <h2>{homeData.diversity.sectionTitle}</h2>
-        </div>
-        <div className="diversity-content">
-          <p>{homeData.diversity.content}</p>
-          <div className="diversity-values">
-            {homeData.diversity.values.map((value, index) => (
-              <div key={index} className="value-item">{value}</div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Opportunities Section */}
-        {/* { //Temporary position for homeData.json
-          "title": "Doctoral Openings",
-          "description": "Seeking motivated students in self-supervised learning, large language models, and computational research.",
-          "linkText": "Learn More",
-          "link": "/opportunities"
-        }, */}
-
       <section className="opportunities-section">
         <div className="section-header">
-          <Briefcase size={40} className="section-icon" />
-          <h2>{homeData.opportunities.sectionTitle}</h2>
+          <h2 className="publication-heading">{opportunitiesData.sectionTitle}</h2>
         </div>
         <div className="opportunities-content">
-          <div className="research-areas">
-            {homeData.opportunities.areas.map((area, index) => (
-              <div key={index} className="area-card">
-                <Microscope size={30} />
-                <h3>{area.title}</h3>
-                <p>{area.description}</p>
-                {/* <a href={area.link} className="btn">{area.linkText}</a> */}
-              </div>
-            ))}
+          <div className="news-listings card-list home-opportunities-list">
+            <ul>
+              {opportunitiesData.items
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .map((item, index) => (
+                  <li key={item.id || index} className="news-post opportunity-post">
+                    <div className="post-content-wrapper">
+                      <h2 className="post-title">
+                        <Link 
+                          to={`/opportunities/${item.id}`} 
+                          state={{ from: 'home' }}
+                          onClick={(e) => handleLinkClick(e, `/opportunities/${item.id}`)}
+                        >
+                          {item.title}
+                        </Link>
+                      </h2>
+                      <div className="post-meta">
+                        <span className="post-updated">
+                          {new Date(item.date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                          })}
+                        </span>
+                      </div>
+                      {item.description && (
+                        <p
+                          className="post-description"
+                          dangerouslySetInnerHTML={{ __html: item.description }}
+                        />
+                      )}
+                    </div>
+                  </li>
+                ))}
+            </ul>
           </div>
         </div>
       </section>

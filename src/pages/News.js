@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './News.css';
 
 const News = () => {
+  const location = useLocation();
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
@@ -11,35 +13,47 @@ const News = () => {
       .catch(e => console.log(e));
   }, []);
 
+  // Restore scroll position if returning from detail page
+  useEffect(() => {
+    if (location.state?.returning && location.state?.scrollKey === 'newsScroll') {
+      const savedScroll = sessionStorage.getItem('newsScroll');
+      if (savedScroll) {
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(savedScroll, 10));
+          sessionStorage.removeItem('newsScroll');
+        }, 100);
+      }
+    }
+  }, [location.state]);
+
+  // Save scroll position before navigating
+  const handleLinkClick = () => {
+    sessionStorage.setItem('newsScroll', window.scrollY.toString());
+  };
+
   if(!posts) return (<div>Loading...</div>);
 
   const sortedPosts = posts.news.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <div className="news-container">
-      <h1 className="news-header">News</h1>
-      <div className="news-listings">
-        {sortedPosts.map((post, index) => (
-          <div key={index} className="news-post">
-            <div className="post-content">
-              <h2 className="post-title">{post.title}</h2>
-              <p className="post-description">{post.description}</p>
-              <div className="post-meta">
-                <span className="post-updated">Last updated on {new Date(post.date).toLocaleDateString('en-US', { 
-                  month: 'short', 
-                  day: 'numeric', 
-                  year: 'numeric' 
-                })}</span>
-                <span className="post-read-time">• 1 min read</span>
-              </div>
-            </div>
-            {post.image && (
-              <div className="post-image">
-                <img src={post.image} alt={post.title} />
-              </div>
-            )}
-          </div>
-        ))}
+      <div className="news-grid">
+          {sortedPosts.map((post, index) => (
+                  <Link 
+            key={index}
+                    to={`/news/${post.id}`}
+                    onClick={handleLinkClick}
+            className={`news-card ${post.thumbnail_image ? 'news-card-with-image' : ''}`}
+            style={post.thumbnail_image ? { backgroundImage: `url(${post.thumbnail_image})` } : {}}
+          >
+            <div className="news-card-content">
+              <h2 className="news-card-title">{post.title}</h2>
+              {post.summary && (
+                <p className="news-card-summary">{post.summary}</p>
+              )}
+                </div>
+          </Link>
+          ))}
       </div>
     </div>
   );

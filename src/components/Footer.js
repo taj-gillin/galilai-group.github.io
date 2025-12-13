@@ -1,51 +1,51 @@
 import React from 'react';
 import './Footer.css';
-import { Twitter, Linkedin, Github } from 'lucide-react';
-
-const XIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M18.378 2H21.5L14.872 10.406L22 21.5H15.935L11.262 14.962L5.936 21.5H2.814L9.91 12.528L3 2H9.221L13.467 8.028L18.378 2ZM17.254 19.836H18.883L7.392 3.609H5.675L17.254 19.836Z"
-      fill="currentColor"
-    />
-  </svg>
-);
+import { SiX, SiGithub, SiBluesky, SiThreads } from 'react-icons/si';
+import { HiMail } from 'react-icons/hi';
 
 const Footer = () => {
   return (
     <footer className="page-footer">
       <div className="footer-content">
-        {/* Empty cell for left-side symmetry on desktop */}
-        <div className="footer-left"></div>
-        <div className="footer-text">
-          © {new Date().getFullYear()} Balestriero Lab. All Rights Reserved.
+        <div className="footer-copyright">
+          © {new Date().getFullYear()} Galilai Group @ Brown. All Rights Reserved.
+        </div>
+        <div className="footer-contact">
+          <span className="footer-label">Contact Us</span>
+          <a
+            href="mailto:galilaigroup@gmail.com"
+            className="social-icon"
+            aria-label="Email us at galilaigroup@gmail.com"
+            title="galilaigroup@gmail.com"
+          >
+            <HiMail size={20} />
+          </a>
         </div>
         <div className="footer-social">
-        <a
-            href="https://twitter.com/randall_balestr"
-            className="social-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <XIcon />
-          </a>
+          <span className="footer-label">Follow Us</span>
           <a
-            href="https://www.linkedin.com/in/randallbalestriero/"
+            href="https://x.com/GalilAI_Group"
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Follow us on X"
           >
-            <Linkedin size={20} />
+            <SiX size={20} />
           </a>
           <a
             href="https://github.com/rbalestr-lab"
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Follow us on GitHub"
           >
-            <Github size={20} />
+            <SiGithub size={20} />
+          </a>
+          <a href="https://bsky.app/profile/galilai.bsky.social" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Bluesky">
+            <SiBluesky size={20} />
+          </a>
+          <a href="https://www.threads.com/@galilai_group" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Threads">
+            <SiThreads size={20} />
           </a>
         </div>
       </div>

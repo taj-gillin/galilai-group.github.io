@@ -1,0 +1,239 @@
+.people-container {
+  width: 65%;
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+
+.people-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.people-header h1 {
+  font-family: 'Roboto', sans-serif;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.people-header p {
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Section Titles */
+.people-section {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.section-title {
+  text-align: left;
+  font-size: 1.75rem;
+  color: #111827;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 10px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 40px;
+  row-gap: 60px;
+  width: 100%;
+  margin: 0;
+  padding: 0 40px;
+  position: relative;
+}
+
+.person-card {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Randall's card positioned at leftmost column - floating and vertically centered */
+.person-card.randall-card {
+  position: fixed;
+  left: calc(12.5vw + 20px - 250px);
+  top: 50vh;
+  transform: translateY(-50%);
+  width: 220px;
+  z-index: 1;
+}
+
+/* Adjust for screens where container hits max-width */
+@media (min-width: 1467px) {
+  .person-card.randall-card {
+    left: calc((100vw - 1100px) / 2 + 20px - 250px);
+  }
+}
+
+/* On smaller screens, reset to normal flow to avoid overlap */
+@media (max-width: 1024px) {
+  .person-card.randall-card {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+  }
+}
+
+/* 3 per row for large tablets */
+@media (max-width: 1024px) {
+  .people-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* 2 per row for medium tablets */
+@media (max-width: 768px) {
+  .people-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 1 per row for mobile */
+@media (max-width: 640px) {
+  .people-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+}
+
+
+
+.people-grid.centered {
+  justify-items: center;
+}
+
+.person-image-link {
+  display: block;
+  text-decoration: none;
+  outline: none;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.person-image-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Keep Randall's image larger than others but reduced from original */
+.person-card.randall-card .person-image-circle {
+  width: 210px;
+  height: 210px;
+  margin: 0 auto 18px;
+}
+
+.person-image-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.person-details h3 {
+  margin: 10px 0 5px;
+  color: #732822;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.3;
+  transition: transform 0.3s ease;
+}
+
+.person-details h3 a {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+.person-details h3 a:hover,
+.person-image-link:hover ~ .person-details h3 a,
+.person-card:hover .person-details h3 a {
+  color: #C00404;
+  text-decoration: none;
+}
+
+.person-details h3 a:focus {
+  outline: none;
+}
+
+.person-details h3 a:active {
+  outline: none;
+}
+
+.person-details .role {
+  color: #374151;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+
+.person-card:hover:not(.card-clicked) .person-image-circle,
+.person-image-link:hover .person-image-circle {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.person-card:hover:not(.card-clicked) .person-details h3 {
+  transform: scale(1.05) translateY(2px);
+}
+
+.person-card:hover:not(.card-clicked) .person-details .role {
+  transform: scale(1.05) translateY(2px);
+}
+
+.person-card.card-clicked .person-image-circle {
+  transform: none;
+}
+
+.person-card.card-clicked .person-details h3 {
+  transform: none;
+}
+
+.person-card.card-clicked .person-details .role {
+  transform: none;
+}
+
+.person-details .research-interests {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .people-container {
+    width: 90%;
+    margin: 80px auto;
+  }
+}
+
+html {
+  scroll-padding-top: 4rem;
+  scroll-behavior: smooth;
+}
+

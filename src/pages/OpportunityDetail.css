@@ -1,0 +1,95 @@
+.opportunity-detail-container {
+  width: 65%;
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 0 20px;
+  min-height: calc(100vh - 200px);
+}
+
+.opportunity-detail {
+  padding: 0;
+}
+
+.opportunity-detail-header {
+  margin-bottom: 30px;
+}
+
+.opportunity-detail-header h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  color: #000000;
+  line-height: 1.3;
+}
+
+.opportunity-meta {
+  font-size: 1rem;
+  color: #374151;
+}
+
+.opportunity-detail-content {
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #374151;
+}
+
+.opportunity-detail-content p {
+  margin-bottom: 1rem;
+}
+
+.opportunity-detail-content a {
+  color: #732822;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.opportunity-detail-content a:hover {
+  color: #C00404;
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+  color: #732822;
+  text-decoration: none;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.back-link:hover {
+  color: #C00404;
+  text-decoration: underline;
+}
+
+.loading,
+.error-message {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.error-message a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.error-message a:hover {
+  color: #732822;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .opportunity-detail-container {
+    margin: 80px auto;
+    padding: 1rem;
+  }
+
+  .opportunity-detail-header h1 {
+    font-size: 1.5rem;
+  }
+}
+

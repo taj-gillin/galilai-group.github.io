@@ -1,220 +1,184 @@
-import React, { useState, useEffect } from 'react';
-import { FaGithub } from 'react-icons/fa';
-import { SiArxiv } from 'react-icons/si';
-import { GlobeIcon } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './Publications.css';
 
-const XIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M18.378 2H21.5L14.872 10.406L22 21.5H15.935L11.262 14.962L5.936 21.5H2.814L9.91 12.528L3 2H9.221L13.467 8.028L18.378 2ZM17.254 19.836H18.883L7.392 3.609H5.675L17.254 19.836Z"
-      fill="currentColor"
-    />
-  </svg>
-);
-// "authors": ["Vlad Sobal", "Wancong Zhang", "Kyunghyun Cho", "Randall Balestriero", "Tim G. J. Rudner", "Yann LeCun"],
-
 const ProjectCard = ({ project }) => {
-  const [expanded, setExpanded] = useState(false);
-  const maxLength = 150;
-  const truncatedDescription =
-    project.description.length > maxLength
-      ? project.description.slice(0, maxLength) + '...'
-      : project.description;
-
-  const toggleExpand = () => setExpanded(!expanded);
-
-  // Use the "categories" array if available; otherwise fallback to a single category.
   const categories = project.categories || (project.category ? [project.category] : []);
+  const authors = Array.isArray(project.authors) ? project.authors.join(', ') : project.authors;
+  const publication =
+    project.publication ||
+    project.venue ||
+    project.conference ||
+    project.date ||
+    project.year ||
+    '';
+
+  const paperLink = project.paper || project.arxiv;
+  const codeLink = project.code || project.github;
+  const projectLink = project.projectPage || project.blog || project.webpage;
+
+  const isGif = project.image && project.image.toLowerCase().endsWith('.gif');
+
   return (
-    <div className="project-card">
-      <div className="project-image-container">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="project-image"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = '/assets/images/fallback_image.png';
-          }}
-        />
-        {project.formula && (
-          <div className="project-formula">{project.formula}</div>
-        )}
+    <li className="publication-entry">
+      <div className="publication-image-container">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className={`publication-image ${isGif ? 'publication-image-gif' : ''}`}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = '/assets/images/fallback_image.png';
+            }}
+          />
+        ) : null}
       </div>
-      <div className="project-details">
-        <div className="project-main">
-          <div className="project-header">
-            <h2>{project.title}</h2>
-          </div>
-          <div className="project-categories">
-            {categories.map((cat, index) => (
-              <span key={index} className="project-category">
-                {cat}{index < categories.length - 1 ? ", " : ""}
+      <div className="publication-details">
+        <h2 className="publication-title">{project.title}</h2>
+        {authors && <p className="publication-authors">{authors}</p>}
+        {publication && <p className="publication-venue">{publication}</p>}
+        <div className="publication-links">
+          {paperLink && (
+            <a
+              href={paperLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="publication-link"
+            >
+              [Paper]
+            </a>
+          )}
+          {codeLink && (
+            <a
+              href={codeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="publication-link"
+            >
+              [Code]
+            </a>
+          )}
+          {projectLink && (
+            <a
+              href={projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="publication-link"
+            >
+              [Blog]
+            </a>
+          )}
+        </div>
+        {!!categories.length && (
+          <div className="publication-tags">
+            {[...categories].sort().map((cat, index) => (
+              <span key={index} className="publication-tag">
+                {cat}
               </span>
             ))}
           </div>
-          <p className="project-description">
-            {expanded ? project.description : truncatedDescription}
-          </p>
-        </div>
-        <div className="project-footer">
-          <span className="project-date">{project.date}</span>
-          <div className="footer-right">
-            <div className="link-icons">
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-link"
-                  title="GitHub"
-                >
-                  <FaGithub />
-                </a>
-              )}
-              {project.arxiv && (
-                <a
-                  href={project.arxiv}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-link"
-                  title="arXiv"
-                >
-                  <SiArxiv />
-                </a>
-              )}
-              {project.twitter && (
-                <a
-                  href={project.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-link"
-                  title="Twitter"
-                >
-                  <XIcon />
-                </a>
-              )}
-              {project.webpage && (
-                <a
-                  href={project.webpage}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-link"
-                  title="Webpage"
-                >
-                  <GlobeIcon />
-                </a>
-              )}
-            </div>
-            <div className="buttons">
-              <button className="continue-reading" onClick={toggleExpand}>
-                {expanded ? 'Show Less' : 'Continue Reading'}
-              </button>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
-    </div>
+    </li>
   );
 };
 
 const Publications = () => {
   const [data, setData] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedYear, setSelectedYear] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
-    fetch('/data/research.json')
+    fetch('/data/publications.json')
       .then((response) => response.json())
       .then(setData)
       .catch(console.error);
   }, []);
 
-  // Update filter to check title, description, and categories.
-  const filteredProjects = data
-    ? data.projects.filter((project) => {
-        const lowerTerm = searchTerm.toLowerCase();
-        const projectCategories = project.categories || (project.category ? [project.category] : []);
-        return (
-          project.title.toLowerCase().includes(lowerTerm) ||
-          project.description.toLowerCase().includes(lowerTerm) ||
-          projectCategories.join(' ').toLowerCase().includes(lowerTerm)
-        );
-      })
-    : [];
+  const { yearOptions, categoryOptions, sortedProjects } = useMemo(() => {
+    if (!data) {
+      return { yearOptions: [], categoryOptions: [], sortedProjects: [] };
+    }
 
-  // Compute categories dynamically from the projects array, taking into account multiple categories per project.
-  const computedCategories = data
-    ? data.projects.reduce((acc, project) => {
-        const projectCategories = project.categories || (project.category ? [project.category] : []);
-        projectCategories.forEach((cat) => {
-          acc[cat] = (acc[cat] || 0) + 1;
-        });
-        return acc;
-      }, {})
-    : {};
+    const sortedProjects = data.projects
+      .slice()
+      .sort((a, b) => new Date(b.date || b.year || 0) - new Date(a.date || a.year || 0));
 
-  const categoriesArray = Object.entries(computedCategories).map(
-    ([name, count]) => ({ name, count })
-  );
+    const yearsSet = new Set();
+    const categoriesSet = new Set();
 
-  // Sort projects by date (latest first).
-  const sortedProjects = filteredProjects
-    .slice()
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    sortedProjects.forEach((project) => {
+      const projectYear = project.year || (project.date ? new Date(project.date).getFullYear().toString() : null);
+      if (projectYear) {
+        yearsSet.add(projectYear);
+      }
+      const projectCategories = project.categories || (project.category ? [project.category] : []);
+      projectCategories.forEach((cat) => categoriesSet.add(cat));
+    });
+
+    const yearOptions = Array.from(yearsSet).sort((a, b) => Number(b) - Number(a));
+    const categoryOptions = Array.from(categoriesSet).sort((a, b) => a.localeCompare(b));
+
+    return { yearOptions, categoryOptions, sortedProjects };
+  }, [data]);
+
+  const filteredProjects = useMemo(() => {
+    if (!sortedProjects.length) return [];
+
+    return sortedProjects.filter((project) => {
+      const projectYear = project.year || (project.date ? new Date(project.date).getFullYear().toString() : null);
+      const projectCategories = project.categories || (project.category ? [project.category] : []);
+
+      const matchesYear = selectedYear === 'All' || projectYear === selectedYear;
+      const matchesCategory =
+        selectedCategory === 'All' || projectCategories.includes(selectedCategory);
+
+      return matchesYear && matchesCategory;
+    });
+  }, [sortedProjects, selectedYear, selectedCategory]);
 
   if (!data) return <div className="loading">Loading...</div>;
 
   return (
     <div className="publication-container">
-      <div className="publication-grid">
-        <div className="projects-section">
-          {sortedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-        <div className="sidebar">
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search"
-              className="search-input"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          <div className="categories">
-            <h3>CATEGORIES</h3>
-            {categoriesArray.map((category, index) => (
+      <div className="filter-bar">
+        <div className="filter-group">
+          <p className="filter-label">Year</p>
+          <div className="filter-chips">
+            {['All', ...yearOptions].map((year) => (
               <button
-                key={index}
-                className={`category-item ${
-                  searchTerm.toLowerCase() === category.name.toLowerCase()
-                    ? 'active'
-                    : ''
-                }`}
-                onClick={() =>
-                  setSearchTerm(
-                    searchTerm.toLowerCase() === category.name.toLowerCase()
-                      ? ''
-                      : category.name
-                  )
-                }
+                key={year}
+                className={`filter-chip ${selectedYear === year ? 'active' : ''}`}
+                onClick={() => setSelectedYear(year)}
               >
-                <span>{category.name}</span>
-                <span>({category.count})</span>
+                {year}
               </button>
             ))}
           </div>
         </div>
+
+        <div className="filter-group">
+          <p className="filter-label">Research Topics</p>
+          <div className="filter-chips">
+            {['All', ...categoryOptions].map((topic) => (
+              <button
+                key={topic}
+                className={`filter-chip ${selectedCategory === topic ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(topic)}
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="publication-list-wrapper">
+        <ul className="publication-list">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </ul>
       </div>
     </div>
   );
