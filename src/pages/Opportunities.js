@@ -1,19 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Opportunities.css';
 import { Link, useLocation } from 'react-router-dom';
-import { Twitter, Linkedin, Github } from 'lucide-react';
 import { withPublicUrl } from '../utils/publicUrl';
-
-const XIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M18.378 2H21.5L14.872 10.406L22 21.5H15.935L11.262 14.962L5.936 21.5H2.814L9.91 12.528L3 2H9.221L13.467 8.028L18.378 2ZM17.254 19.836H18.883L7.392 3.609H5.675L17.254 19.836Z"
-      fill="currentColor"
-    />
-  </svg>
-);
 
 const Opportunities = () => {
   const location = useLocation();

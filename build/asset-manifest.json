@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/galilai-group.github.io/static/css/main.a0d5e3b7.css",
-    "main.js": "/galilai-group.github.io/static/js/main.b7adc186.js",
+    "main.js": "/galilai-group.github.io/static/js/main.4fb1f180.js",
     "index.html": "/galilai-group.github.io/index.html",
     "main.a0d5e3b7.css.map": "/galilai-group.github.io/static/css/main.a0d5e3b7.css.map",
-    "main.b7adc186.js.map": "/galilai-group.github.io/static/js/main.b7adc186.js.map"
+    "main.4fb1f180.js.map": "/galilai-group.github.io/static/js/main.4fb1f180.js.map"
   },
   "entrypoints": [
     "static/css/main.a0d5e3b7.css",
-    "static/js/main.b7adc186.js"
+    "static/js/main.4fb1f180.js"
   ]
 }

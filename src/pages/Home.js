@@ -1,8 +1,7 @@
-import React, { useRef, useCallback, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Home.css';
 import './News.css';
-import { Users, DollarSign } from 'lucide-react';
 import { withPublicUrl } from '../utils/publicUrl';
 
 const Home = () => {
@@ -11,12 +10,6 @@ const Home = () => {
   const [newsData, setNewsData] = useState(null);
   const [opportunitiesData, setOpportunitiesData] = useState(null);
   const videoRef = useRef(null);
-
-  const scrollToNews = useCallback(() => {
-    if (newsRef.current) {
-      newsRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
 
   useEffect(() => {
     // Fetch news data
