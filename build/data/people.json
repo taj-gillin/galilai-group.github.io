@@ -142,7 +142,14 @@
         "image": "/assets/people/pranav_sankar.png",
         "researchInterests": "Quantitative Finance, World Models, Deep Learning",
         "personalWebsite": "https://x.com/pranavsankar_"
-      }
+      },
 
+      {
+        "name": "Taj Gillin",
+        "role": "Masters & Undergrads",
+        "role_title": "Undergrad Researcher '26",
+        "image": "/assets/people/taj_gillin.png",
+        "personalWebsite": "https://tajgillin.com"
+      }
     ]
   }

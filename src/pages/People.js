@@ -82,83 +82,85 @@ const People = ({ people }) => {
         </div>
       )}
 
-      {availableCategories.map((category) => {
-        // Filter people based on their role
-        const filteredPeople = people.filter(person => person.role.includes(category.key));
+      <div className="people-content">
+        {availableCategories.map((category) => {
+          // Filter people based on their role
+          const filteredPeople = people.filter(person => person.role.includes(category.key));
 
-        if (filteredPeople.length === 0) return null;
+          if (filteredPeople.length === 0) return null;
 
-        return (
-          <div 
-            key={category.key} 
-            className="people-section"
-          >
-            <h2 id={category.key} className="section-title">{category.title}</h2>
-            <div
-              className={`people-grid ${filteredPeople.length === 3 ? 'people-grid-three' : ''}`}
+          return (
+            <div 
+              key={category.key} 
+              className="people-section"
             >
-              {filteredPeople.map((person, index) => {
-                const personLink = person.personalWebsite || person.linkedin || null;
-                const cardKey = `${category.key}-${index}`;
-                const isClicked = clickedCard === cardKey;
-                return (
-                  <div 
-                    key={index} 
-                    className={`person-card ${isClicked ? 'card-clicked' : ''}`}
-                    onMouseLeave={() => setClickedCard(null)}
-                  >
-                    {personLink ? (
-                      <a 
-                        href={personLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="person-image-link"
-                        onClick={(e) => {
-                          setClickedCard(cardKey);
-                          e.target.blur();
-                        }}
-                      >
+              <h2 id={category.key} className="section-title">{category.title}</h2>
+              <div
+                className={`people-grid ${filteredPeople.length === 3 ? 'people-grid-three' : ''}`}
+              >
+                {filteredPeople.map((person, index) => {
+                  const personLink = person.personalWebsite || person.linkedin || null;
+                  const cardKey = `${category.key}-${index}`;
+                  const isClicked = clickedCard === cardKey;
+                  return (
+                    <div 
+                      key={index} 
+                      className={`person-card ${isClicked ? 'card-clicked' : ''}`}
+                      onMouseLeave={() => setClickedCard(null)}
+                    >
+                      {personLink ? (
+                        <a 
+                          href={personLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="person-image-link"
+                          onClick={(e) => {
+                            setClickedCard(cardKey);
+                            e.target.blur();
+                          }}
+                        >
+                          <div className="person-image-circle">
+                            <img src={withPublicUrl(person.image)} alt={person.name} />
+                          </div>
+                        </a>
+                      ) : (
                         <div className="person-image-circle">
                           <img src={withPublicUrl(person.image)} alt={person.name} />
                         </div>
-                      </a>
-                    ) : (
-                      <div className="person-image-circle">
-                        <img src={withPublicUrl(person.image)} alt={person.name} />
-                      </div>
-                    )}
-                    <div className="person-details">
-                      <h3>
-                        {personLink ? (
-                          <a 
-                            href={personLink} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            onClick={(e) => {
-                              setClickedCard(cardKey);
-                              e.target.blur();
-                            }}
-                          >
-                            {person.name}
-                          </a>
-                        ) : (
-                          person.name
-                        )}
-                      </h3>
-                      <p className="role">{person.role_title}</p>
-                      {person.now && (
-                        <p className='role'>
-                          {category.key === 'alumni' ? 'Now: ' : ''}{person.now}
-                        </p>
                       )}
+                      <div className="person-details">
+                        <h3>
+                          {personLink ? (
+                            <a 
+                              href={personLink} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              onClick={(e) => {
+                                setClickedCard(cardKey);
+                                e.target.blur();
+                              }}
+                            >
+                              {person.name}
+                            </a>
+                          ) : (
+                            person.name
+                          )}
+                        </h3>
+                        <p className="role">{person.role_title}</p>
+                        {person.now && (
+                          <p className='role'>
+                            {category.key === 'alumni' ? 'Now: ' : ''}{person.now}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
