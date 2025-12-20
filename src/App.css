@@ -26,32 +26,8 @@ footer {
   padding: 10px;
 }
 
-/* Navigation menu */
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  display: flex;
-  justify-content: space-around;
-}
-
-nav ul li {
-  display: inline-block;
-}
-
-nav ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  background-color: #111;
-}
+/* Note: Navbar styles live in src/components/Navbar.css.
+   Avoid global `nav ul ...` rules here, since they override the real navbar. */
 
 /* Fixed footer */
 footer {
@@ -69,20 +45,6 @@ footer {
   main {
     padding-top: 90px; /* Adjusted for mobile navbar */
     padding-bottom: 100px; /* More space for mobile footer */
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    display: block;
-    width: 100%;
-  }
-
-  nav ul li a {
-    padding: 10px;
   }
 }
 

@@ -78,49 +78,49 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          <li>
+          <li className={`nav-item ${isActive('/') ? 'active' : ''}`}>
             <Link
               to="/"
               className={`nav-link ${isActive('/') ? 'active' : ''}`}
               onClick={handleNavClick('/')}
             >
-              Home
+              <span className="nav-link-text">Home</span>
             </Link>
           </li>
-          <li>
+          <li className={`nav-item ${isActive('/news') ? 'active' : ''}`}>
             <Link
               to="/news"
               className={`nav-link ${isActive('/news') ? 'active' : ''}`}
               onClick={handleNavClick('/news')}
             >
-              News
+              <span className="nav-link-text">News</span>
             </Link>
           </li>
-          <li>
+          <li className={`nav-item ${isActive('/people') ? 'active' : ''}`}>
             <Link
               to="/people"
               className={`nav-link ${isActive('/people') ? 'active' : ''}`}
               onClick={handleNavClick('/people')}
             >
-              People
+              <span className="nav-link-text">People</span>
             </Link>
           </li>
-          <li>
+          <li className={`nav-item ${isActive('/publications') ? 'active' : ''}`}>
             <Link
               to="/publications"
               className={`nav-link ${isActive('/publications') ? 'active' : ''}`}
               onClick={handleNavClick('/publications')}
             >
-              Publications
+              <span className="nav-link-text">Publications</span>
             </Link>
           </li>
-          <li>
+          <li className={`nav-item ${isActive('/projects') ? 'active' : ''}`}>
             <Link
               to="/projects"
               className={`nav-link ${isActive('/projects') ? 'active' : ''}`}
               onClick={handleNavClick('/projects')}
             >
-              Projects
+              <span className="nav-link-text">Projects</span>
             </Link>
           </li>
           {/* <li>
@@ -132,13 +132,13 @@ const Navbar = () => {
               Teaching
             </Link>
           </li> */}
-          <li>
+          <li className={`nav-item ${isActive('/opportunities') ? 'active' : ''}`}>
             <Link
               to="/opportunities"
               className={`nav-link ${isActive('/opportunities') ? 'active' : ''}`}
               onClick={handleNavClick('/opportunities')}
             >
-              Opportunities
+              <span className="nav-link-text">Opportunities</span>
             </Link>
           </li>
         </ul>
