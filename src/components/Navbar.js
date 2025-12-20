@@ -64,7 +64,7 @@ const Navbar = () => {
           onBlur={() => setBrandActive(false)}
         >
           <img
-            src={withPublicUrl('/assets/logos/lab-logo.svg')}
+            src={withPublicUrl('/assets/logos/lab-logo-white.svg')}
             alt="Galilai Group Logo"
             className="navbar-logo"
           />
