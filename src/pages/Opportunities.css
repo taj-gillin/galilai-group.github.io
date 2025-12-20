@@ -4,7 +4,8 @@
   width: 65%;
   max-width: 900px;
   margin: 100px auto 0;
-  padding: 0 0 120px; /* extra bottom padding so content isn't hidden behind sticky footer */
+  padding: 0 20px 120px; /* horizontal padding matches homepage, extra bottom padding for sticky footer */
+  box-sizing: border-box;
   background-color: #ffffff;
   position: relative;
 }
