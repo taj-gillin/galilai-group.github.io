@@ -1,36 +1,45 @@
 .people-container {
-  width: 100%;
+  width: 90%;
+  max-width: 1200px;
   margin: 100px auto;
-  padding: 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
 
-  /* Keep photo size unchanged while reducing columns responsively */
+  /* Photo and spacing settings */
   --people-photo-size: 180px;
   --people-col-gap: 40px;
   --people-row-gap: 60px;
   --randall-card-width: 220px;
-  /* Keep Randall's margin to the page left constant */
-  --randall-page-left: 40px;
-  /* Keep the gap between Randall and the left-most person constant */
-  --randall-gap: var(--people-col-gap);
-  /* Right content max width (matches previous container max-width) */
-  --people-content-max-width: 900px;
+  --randall-gap: 40px; /* Fixed gap between Randall and right content */
+}
+
+/* Randall's card - positioned on the left, sticky vertically centered */
+.person-card.randall-card {
+  flex-shrink: 0;
+  width: var(--randall-card-width);
+  position: sticky;
+  top: 50vh;
+  transform: translateY(-50%);
+  text-align: center;
+  margin-right: var(--randall-gap);
+  z-index: 1;
+}
+
+/* Keep Randall's image larger than others */
+.person-card.randall-card .person-image-circle {
+  width: 210px;
+  height: 210px;
+  margin: 0 auto 18px;
 }
 
 .people-content {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  /* 
-   * For centered content, left edge = (viewport - width) / 2
-   * Content left must be >= Randall right + gap = 20px + 220px + 40px = 280px
-   * So: (viewport - width) / 2 >= 280  =>  width <= viewport - 560px
-   */
-  max-width: min(
-    var(--people-content-max-width),
-    calc(100vw - 2 * (20px + var(--randall-card-width) + var(--randall-gap)))
-  );
-  /* Center the content horizontally */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
 }
 
 .people-header {
@@ -56,7 +65,7 @@
   margin-bottom: 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   position: relative;
 }
@@ -74,7 +83,6 @@
   width: 100%;
   max-width: 100%;
 }
-
 
 .people-grid {
   display: grid;
@@ -97,61 +105,6 @@
   align-items: center;
 }
 
-/* Randall's card positioned at leftmost column - floating and vertically centered */
-.person-card.randall-card {
-  position: fixed;
-  width: var(--randall-card-width);
-  /* Position relative to centered content's left edge, keeping the gap unchanged */
-  left: max(
-    20px,
-    calc(
-      50% 
-      - var(--people-content-max-width) / 2 
-      - var(--randall-gap) 
-      - var(--randall-card-width)
-    )
-  );
-  top: 50vh;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
-/* Make sure the right content doesn't get squeezed on medium screens */
-@media (max-width: 900px) {
-  .people-content {
-    max-width: min(
-      var(--people-content-max-width),
-      calc(100vw - 2 * (20px + var(--randall-card-width) + var(--randall-gap)))
-    );
-  }
-}
-
-/*
-  Final phase transition:
-  - Keep Randall floating on the left until the layout becomes too narrow.
-  - Then stack: Randall on top, and people become one-per-row naturally.
-*/
-@media (max-width: 620px) {
-  .person-card.randall-card {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-  }
-
-  /* Final phase transition: stack layout */
-  .people-content {
-    margin-left: 0;
-    max-width: var(--people-content-max-width);
-    padding: 0 20px;
-  }
-}
-
-/* Column wrapping is now handled automatically by auto-fill */
-
-
-
 .people-grid.centered {
   justify-items: center;
 }
@@ -173,13 +126,6 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Keep Randall's image larger than others but reduced from original */
-.person-card.randall-card .person-image-circle {
-  width: 210px;
-  height: 210px;
-  margin: 0 auto 18px;
 }
 
 .person-image-circle img {
@@ -258,10 +204,35 @@
   font-size: 0.8rem;
 }
 
-@media (max-width: 900px) {
+/*
+ * Breakpoint: When viewport is too narrow for Randall + 1 person
+ * Randall (220px) + gap (40px) + 1 person (180px) = 440px minimum content
+ * With 40px container padding, minimum = 480px at 90% width
+ * 480px = 0.9 * viewport => viewport ~533px
+ * Using 560px for comfortable buffer
+ */
+@media (max-width: 560px) {
   .people-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .person-card.randall-card {
+    position: relative;
+    top: auto;
+    transform: none;
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
+
+  .people-content {
     width: 90%;
-    margin: 80px auto;
+    margin: 0 auto;
+  }
+
+  .people-grid {
+    justify-content: center;
   }
 }
 
@@ -269,4 +240,3 @@ html {
   scroll-padding-top: 4rem;
   scroll-behavior: smooth;
 }
-

@@ -7,8 +7,8 @@
   margin-top: -92px;
   
   /* Shared width settings for consistent section widths */
-  --home-section-width: 65%;
-  --home-section-max-width: 900px;
+  --home-section-width: 90%;
+  --home-section-max-width: 1200px;
   --home-section-padding: 0 20px;
 }
 
@@ -300,8 +300,8 @@
 }
 
 .funding-content {
-  width: 65%;
-  max-width: 900px;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
   padding: 0 20px;
