@@ -49,6 +49,9 @@ const News = () => {
           >
             <div className="news-card-content">
               <h2 className="news-card-title">{post.title}</h2>
+              {post.date && (
+                <span className="news-card-date">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              )}
               {post.summary && (
                 <p className="news-card-summary">{post.summary}</p>
               )}

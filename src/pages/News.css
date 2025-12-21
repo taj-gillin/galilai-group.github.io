@@ -67,6 +67,14 @@
   text-align: center;
 }
 
+.news-card-date {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #374151;
+  text-align: center;
+  font-weight: 400;
+}
+
 .news-card-summary {
   font-size: 0.95rem;
   line-height: 1.5;
@@ -214,6 +222,10 @@
     font-size: 1.1rem;
   }
   
+  .news-card-date {
+    font-size: 0.9rem;
+  }
+  
   .news-card-summary {
     font-size: 0.9rem;
     min-height: calc(0.9rem * 1.5 * 3);
@@ -251,6 +263,10 @@
   
   .news-card-title {
     font-size: 1.05rem;
+  }
+  
+  .news-card-date {
+    font-size: 0.85rem;
   }
   
   .news-card-summary {
