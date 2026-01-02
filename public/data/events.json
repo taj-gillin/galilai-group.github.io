@@ -1,0 +1,30 @@
+{
+  "events": [
+    {
+      "title": "Self Supervised Learning: The Final Frontier of AI",
+      "type": "Workshop",
+      "date": "2025-04-29",
+      "at": "Flatiron Institute",
+      "thumbnail_image": "/assets/images/events/final_frontier_of_ai.svg",
+      "url": "https://www.simonsfoundation.org/event/self-supervised-learning-the-final-frontier-of-ai/"
+    },
+    {
+      "title": "Generative AI in Finance",
+      "type": "Workshop",
+      "date": "2025-12-06",
+      "at": "NeurIPS 2025",
+      "url": "https://sites.google.com/view/neurips-25-gen-ai-in-finance/home?authuser=0",
+      "thumbnail_image": "/assets/images/events/generative_ai_in_finance.svg"
+    },
+    {
+      "title": "World Modeling",
+      "type": "Workshop",
+      "date": "2026-02-04",
+      "endDate": "2026-02-06",
+      "at": "Mila",
+      "url": "https://world-model-mila.github.io/",
+      "thumbnail_image": "/assets/images/events/world_modeling.svg"
+    }
+  ]
+}
+
