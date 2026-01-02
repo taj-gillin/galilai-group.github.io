@@ -15,16 +15,16 @@
   --randall-gap: 40px; /* Fixed gap between Randall and right content */
 }
 
-/* Randall's card - positioned on the left, sticky vertically centered */
+/* Randall's card - fixed position, always vertically centered */
 .person-card.randall-card {
-  flex-shrink: 0;
-  width: var(--randall-card-width);
-  position: sticky;
-  top: 50vh;
+  position: fixed;
+  top: 50%;
   transform: translateY(-50%);
+  /* Position at left edge of container: max of (centered 1200px) or (5vw for 90% width) + 20px padding */
+  left: calc(max((100vw - 1200px) / 2, 5vw) + 20px);
+  width: var(--randall-card-width);
   text-align: center;
-  margin-right: var(--randall-gap);
-  z-index: 1;
+  z-index: 100;
 }
 
 /* Keep Randall's image larger than others */
@@ -39,6 +39,7 @@
   min-width: 0;
   padding: 0;
   margin: 0;
+  margin-left: calc(var(--randall-card-width) + var(--randall-gap)); /* Space for fixed Randall card */
   box-sizing: border-box;
 }
 
@@ -220,6 +221,7 @@
   .person-card.randall-card {
     position: relative;
     top: auto;
+    left: auto;
     transform: none;
     width: auto;
     margin-right: 0;
@@ -229,6 +231,7 @@
   .people-content {
     width: 90%;
     margin: 0 auto;
+    margin-left: 0; /* Reset for mobile */
   }
 
   .people-grid {
