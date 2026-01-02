@@ -68,7 +68,7 @@ const Navbar = () => {
             alt="Galilai Group Logo"
             className="navbar-logo"
           />
-          <span className="brand-title">Galilai Group</span>
+          <span className="brand-title">GalilAI Group</span>
         </Link>
 
         {/* Mobile Menu Icon */}
@@ -93,7 +93,7 @@ const Navbar = () => {
               className={`nav-link ${isActive('/news') ? 'active' : ''}`}
               onClick={handleNavClick('/news')}
             >
-              <span className="nav-link-text">News</span>
+              <span className="nav-link-text">News & Events</span>
             </Link>
           </li>
           <li className={`nav-item ${isActive('/people') ? 'active' : ''}`}>

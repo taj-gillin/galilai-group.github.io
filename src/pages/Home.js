@@ -100,7 +100,7 @@ const Home = () => {
             type="button"
             className="home-scroll-arrow"
             onClick={handleScrollToWelcome}
-            aria-label="Scroll to Welcome to Galilai Group section"
+            aria-label="Scroll to Welcome to GalilAI Group section"
           >
             <svg
               className="home-scroll-arrow-icon"
@@ -118,9 +118,9 @@ const Home = () => {
 
       {/* Intro Section */}
       <div className="home-text" ref={welcomeRef} id="welcome">
-        <h1 className="publication-heading">Welcome to Galilai Group</h1>
+        <h1 className="publication-heading">Welcome to GalilAI Group</h1>
         <p className="home-intro-body">
-        At Galilai Group, we study both the theory and practice of deep learning. We use theory to guide practice, and use practical observations to inform new theory.
+        At GalilAI Group, we study both the theory and practice of deep learning. We use theory to guide practice, and use practical observations to inform new theory.
         </p>
       </div>
 
@@ -220,4 +220,7 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
 

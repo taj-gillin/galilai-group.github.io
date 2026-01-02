@@ -38,6 +38,10 @@ const News = () => {
 
   return (
     <div className="news-container">
+      {/* News Section */}
+      <div className="news-section-header">
+        <h2 className="news-section-title">News</h2>
+      </div>
       <div className="news-grid">
           {sortedPosts.map((post, index) => (
                   <Link 
@@ -58,6 +62,15 @@ const News = () => {
                 </div>
           </Link>
           ))}
+      </div>
+
+      {/* Events Section */}
+      <div className="news-section-header events-section-header">
+        <h2 className="news-section-title">Events</h2>
+      </div>
+      <div className="events-grid">
+        {/* Event blocks will be added here */}
+        <p className="events-placeholder">Coming soon...</p>
       </div>
     </div>
   );

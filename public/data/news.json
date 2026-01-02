@@ -2,6 +2,7 @@
   "news": [
     {
       "id": "neurips-2025",
+      "type": "news",
       "title": "NeurIPS 2025",
       "date": "2025-09-18 EDT",
       "description": "We have five papers accepted by NeurIPS 2025! The full publication list can be found <a href=\"/publications\">here</a>.",
@@ -10,6 +11,7 @@
     },
     {
       "id": "stable-pretraining",
+      "type": "news",
       "title": "stable-pretraining",
       "date": "2025-09-20 EDT",
       "description": "We're excited to announce the release of <a href=\"https://github.com/rbalestr-lab/stable-pretraining/tree/v0.1.0\" target=\"_blank\" rel=\"noopener noreferrer\">stable-pretraining</a> v0.1.0, the first major milestone of our open-source framework for self-supervised pretraining.\n\nBuilt on top of PyTorch Lightning, stable-pretraining focuses on providing real-time visibility into training quality—offering detailed logging, monitoring, and a rich callback ecosystem (including OnlineProbe, OnlineKNN, RankMe, and more). The framework makes it easy to inspect representation collapse, training dynamics, and downstream performance, allowing researchers and practitioners to iterate faster and debug more effectively.",

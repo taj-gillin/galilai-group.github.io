@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="page-footer">
       <div className="footer-content">
         <div className="footer-copyright">
-          © {new Date().getFullYear()} Galilai Group @ Brown. All Rights Reserved.
+          © {new Date().getFullYear()} GalilAI Group @ Brown. All Rights Reserved.
         </div>
         <div className="footer-contact">
           <span className="footer-label">Contact Us</span>
